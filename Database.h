@@ -16,7 +16,7 @@ public:
 	Database& add(string[column_len]);
 	Database& del(int);
 	Database& set(string, int, string);
-private:
+protected:
 	int __col_name_posi(string);
 	void __print_row(string*);
 	int __column_max;
@@ -27,16 +27,19 @@ private:
 	string __base[row_len][column_len];
 };
 
-//template <int row_len, int column_len>
-//class AccountDB: public Database<row_len, column_len>
-//{
-//public:
-//	AccountDB();
-//	void Login();
-//	void Sign();
-//private:
-//	int __user_count;
-//};
+template <int row_len, int column_len>
+class AccountDB: public Database<row_len, column_len>
+{
+public:
+	AccountDB(string*, Type*, string);
+	//~AccountDB();
+	bool Login(string, string);
+	void SignUp(string, string);
+	void Save();
+private:
+	string __db_path;
+};
+
 //
 //
 //template <int row_len, int column_len>

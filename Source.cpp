@@ -1,24 +1,10 @@
-#include <iostream>
+ï»¿#include <iostream>
 #include "Database.h"
 #include "Database.cpp"
+#include "AccountDB.cpp"
 
 int main()
 {
-	Type typetest[4] = { INT_T , FLOAT_T , INT_T , STRING_T };
-	string natest[4] = {
-		"ID",
-		"ºØÃþ",
-		"¼Æ¶q",
-		"¼t°Ó"
-	};
-	string row1[4] = { "F0001", "¤û¥¤", "5", "ªL»ñÀç" };
-	string row2[4] = { "F0002", "¥i¼Ö", "4", "¦Ê¨Æ" };
-	string row3[4] = { "F0003", "Ä«ªG", "3", "¹j¾À¤ôªGÅu" };
-	string row4[4] = { "F0004", "ªG¥Ä", "2", "¶W¥«" };
-	string row5[4] = { "F0005", "¬üÄRªG", "1", "¥i¤f¥i¼Ö" };
-	Database<4, 4> testdb(natest, typetest);
-	testdb.add(row1).add(row2).add(row3).add(row4);
 
-	testdb.print();
 	return 0;
 }
