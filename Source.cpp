@@ -2,7 +2,6 @@
 #include "Database.h"
 #include "Database.cpp"
 
-
 int main()
 {
 	Type typetest[4] = { INT_T , FLOAT_T , INT_T , STRING_T };
@@ -12,7 +11,13 @@ int main()
 		"计秖",
 		"紅坝"
 	};
+	string row1[4] = { "F0001", "イ", "5", "狶获犁" };
+	string row2[4] = { "F0002", "イ", "4", "狶获犁" };
+	string row3[4] = { "F0003", "イ", "3", "狶获犁" };
+	string row4[4] = { "F0004", "イ", "2", "狶获犁" };
+	string row5[4] = { "F0005", "イ", "1", "狶获犁" };
 	Database<4, 4> testdb(natest, typetest);
+	testdb.add(row1).add(row2).add(row3).add(row4).add(row5);
 
 	return 0;
 }

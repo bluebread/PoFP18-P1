@@ -13,11 +13,12 @@ public:
 	Database(string*, Type*);
 	Database& search();
 	Database& print();
-	Database& add();
+	Database& add(string[column_len]);
 	Database& del();
 	Database& set();
 private:
-	int __column_count;
+	int __column_max;
+	int __row_max;
 	int __row_count;
 	Type *__type_list;
 	string *__names;
