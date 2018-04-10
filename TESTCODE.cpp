@@ -3,6 +3,7 @@
 #include "Database.cpp"
 #include "AccountDB.cpp"
 #include "ItemDB.cpp"
+#include "SaleListDB.cpp"
 
 void test1()
 {
@@ -92,4 +93,38 @@ void test3()
 	testidb.printRows(id_list);
 
 	testidb.Save();
+}
+
+void test4()
+{
+	Type typetest[6] = {
+		STRING_T,
+		STRING_T,
+		STRING_T,
+		FLOAT_T,
+		INT_T,
+		STRING_T
+	};
+	string natest[6] = {
+		"ID",
+		"名稱",
+		"品牌",
+		"價格",
+		"數量",
+		"用戶名"
+	};
+	string path = "已售清單.txt";
+	SaleListDB<2000, 6> testsldb(natest, typetest, path);
+
+	string addtest[6] = {
+		"F0012",
+		"奶油",
+		"ULALA迷路帖",
+		"130.8",
+		"7",
+		"user2"
+	};
+	testsldb.addSaled(addtest);
+
+	testsldb.printList();
 }

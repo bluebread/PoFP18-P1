@@ -58,12 +58,20 @@ private:
 	string __next_id(string);
 	string __db_path;
 };
-//
-//template <int row_len, int column_len>
-//class SaleListDB : public Database<row_len, column_len>
-//{
-//public:
-//	void addSaled();
-//};
+
+template <int row_len, int column_len>
+class SaleListDB : public Database<row_len, column_len>
+{
+public:
+	SaleListDB(string*, Type*, string);
+	void addSaled(string*);
+	void printList();
+private:
+	void __sort();
+	void __exchange(int, int);
+	bool __id_front(string, string);
+	bool __row_front(string*, string*);
+	string __db_path;
+};
 
 #endif // !__DATABASE_H__
