@@ -32,7 +32,7 @@ AccountDB<row_len, column_len>::AccountDB(
 			string new_data(cache);
 			__base[__row_count][k] = new_data;
 		}
-		if (__base[__row_count][0] != "")
+		if (__base[__row_count][ID_COL] != "")
 			__row_count++;
 	}
 	fclose(fp);

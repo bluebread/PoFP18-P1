@@ -34,7 +34,7 @@ template <int row_len, int column_len>
 void Database<row_len, column_len>::__print_row(
 	string* output_row)
 {
-	const int blank_num = 8;
+	const int blank_num = 12;
 	string blank = " ";
 	for (int j = 0; j < __column_max; j++)
 	{

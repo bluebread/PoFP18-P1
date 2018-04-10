@@ -40,20 +40,24 @@ private:
 	string __db_path;
 };
 
-//
-//
-//template <int row_len, int column_len>
-//class ItemDB :public Database<row_len, column_len>
-//{
-//public:
-//	void deleteItem();
-//	void searchItem();
-//	void addItem();
-//	void setItem();
-//	void printList();
-//private:
-//	int __item_count;
-//};
+
+
+template <int row_len, int column_len>
+class ItemDB :public Database<row_len, column_len>
+{
+public:
+	ItemDB(string*, Type*, string);
+	void deleteItem(string);
+	void searchItem(string, string*);
+	void addItem(string[column_len - 1]);
+	void setItem(string, string, string);
+	void printDB();
+	void printRows(string*);
+	void Save();
+private:
+	string __next_id(string);
+	string __db_path;
+};
 //
 //template <int row_len, int column_len>
 //class SaleListDB : public Database<row_len, column_len>

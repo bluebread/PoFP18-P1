@@ -1,3 +1,14 @@
-﻿  Source.cpp
+﻿  TESTCODE.cpp
+  Source.cpp
+c:\users\hotbr\desktop\projects\homework\pofp18\pofp18-p1\pofp18-p1\itemdb.cpp(211): warning C4018: '<': signed/unsigned 不相符
+  c:\users\hotbr\desktop\projects\homework\pofp18\pofp18-p1\pofp18-p1\itemdb.cpp(201): note: 編譯 類別 樣板 成員函式 'std::string ItemDB<100,5>::__next_id(std::string)' 時
+  c:\users\hotbr\desktop\projects\homework\pofp18\pofp18-p1\pofp18-p1\itemdb.cpp(94): note: 請參閱所要編譯的函式 樣板 具現化 'std::string ItemDB<100,5>::__next_id(std::string)' 之參考
+  c:\users\hotbr\desktop\projects\homework\pofp18\pofp18-p1\pofp18-p1\itemdb.cpp(12): note: 編譯 類別 樣板 成員函式 'ItemDB<100,5>::ItemDB(std::string *,Type *,std::string)' 時
+  c:\users\hotbr\desktop\projects\homework\pofp18\pofp18-p1\pofp18-p1\source.cpp(24): note: 請參閱所要編譯的函式 樣板 具現化 'ItemDB<100,5>::ItemDB(std::string *,Type *,std::string)' 之參考
+  c:\users\hotbr\desktop\projects\homework\pofp18\pofp18-p1\pofp18-p1\source.cpp(24): note: 查看要編譯的 類別 樣板 具現化 'ItemDB<100,5>' 參考
+  ItemDB.cpp
+  Database.cpp
+  AccountDB.cpp
+  正在產生程式碼...
   PoFP18-P1.vcxproj -> C:\Users\hotbr\Desktop\Projects\HOMEWORK\PoFP18\PoFP18-P1\Debug\PoFP18-P1.exe
   PoFP18-P1.vcxproj -> C:\Users\hotbr\Desktop\Projects\HOMEWORK\PoFP18\PoFP18-P1\Debug\PoFP18-P1.pdb (Partial PDB)

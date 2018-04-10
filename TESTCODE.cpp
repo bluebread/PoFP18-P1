@@ -1,6 +1,8 @@
 #include <iostream>
 #include "Database.h"
 #include "Database.cpp"
+#include "AccountDB.cpp"
+#include "ItemDB.cpp"
 
 void test1()
 {
@@ -43,4 +45,51 @@ void test2()
 	string new_pw = "passworduser5";
 	testadb.SignUp(new_id, new_pw);
 	testadb.Save();
+}
+
+void test3()
+{
+	Type typetest[5] = {
+		STRING_T,
+		STRING_T,
+		STRING_T,
+		FLOAT_T,
+		INT_T
+	};
+	string natest[5] = {
+		"ID",
+		"名稱",
+		"品牌",
+		"價格",
+		"數量"
+	};
+	string path = "庫存.txt";
+	ItemDB<100, 5> testidb(natest, typetest, path);
+
+	//string testid = "F0001";
+	//string coltest = "ulala";
+	//string sett = "奶酸";
+	//testidb.setItem(testid, coltest, sett);
+
+	string testrow[4] = {
+		"芒果",
+		"隔壁水果攤",
+		"12.0",
+		"50"
+	};
+	testidb.addItem(testrow);
+
+	testidb.deleteItem("F0008");
+
+	string target = "酸奶";
+	string* id_list = new string[1000];
+	testidb.searchItem(target, id_list);
+
+	testidb.printDB();
+
+	cout << "---------------" << endl;
+
+	testidb.printRows(id_list);
+
+	testidb.Save();
 }
