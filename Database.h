@@ -11,12 +11,14 @@ class Database
 {
 public:
 	Database(string*, Type*);
-	Database& search();
+	string get(int, string);
 	Database& print();
 	Database& add(string[column_len]);
-	Database& del();
-	Database& set();
+	Database& del(int);
+	Database& set(string, int, string);
 private:
+	int __col_name_posi(string);
+	void __print_row(string*);
 	int __column_max;
 	int __row_max;
 	int __row_count;

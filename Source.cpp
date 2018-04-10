@@ -12,12 +12,13 @@ int main()
 		"廠商"
 	};
 	string row1[4] = { "F0001", "牛奶", "5", "林鳳營" };
-	string row2[4] = { "F0002", "牛奶", "4", "林鳳營" };
-	string row3[4] = { "F0003", "牛奶", "3", "林鳳營" };
-	string row4[4] = { "F0004", "牛奶", "2", "林鳳營" };
-	string row5[4] = { "F0005", "牛奶", "1", "林鳳營" };
+	string row2[4] = { "F0002", "可樂", "4", "百事" };
+	string row3[4] = { "F0003", "蘋果", "3", "隔壁水果攤" };
+	string row4[4] = { "F0004", "果汁", "2", "超市" };
+	string row5[4] = { "F0005", "美麗果", "1", "可口可樂" };
 	Database<4, 4> testdb(natest, typetest);
-	testdb.add(row1).add(row2).add(row3).add(row4).add(row5);
+	testdb.add(row1).add(row2).add(row3).add(row4);
 
+	testdb.print();
 	return 0;
 }
