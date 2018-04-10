@@ -7,6 +7,9 @@
 #define USER_COL 5
 
 template <int row_len, int column_len>
+SaleListDB<row_len, column_len>::SaleListDB() {}
+
+template <int row_len, int column_len>
 SaleListDB<row_len, column_len>::SaleListDB(
 	string* names,
 	Type* type_list,
@@ -54,6 +57,39 @@ void SaleListDB<row_len, column_len>::addSaled(
 	__row_count++;
 	return;
 }
+
+template <int row_len, int column_len>
+void SaleListDB<row_len, column_len>::Save()
+{
+	FILE *fp = fopen(__db_path.c_str(), "w");
+	if (fp == NULL)
+	{
+		cerr << "ItemDB::ItemDB: Can not find file.\n";
+		exit(-1);
+	}
+	string cache = "";
+	string blank = " ";
+	for (int j = 0; j < __column_max; j++)
+	{
+		cache += __names[j];
+		cache += blank;
+	}
+	fprintf(fp, "%s\n", cache.c_str());
+	cache.clear();
+
+	for (int i = 0; i < __row_count; i++)
+	{
+		for (int j = 0; j < __column_max; j++)
+		{
+			cache += __base[i][j];
+			cache += blank;
+		}
+		fprintf(fp, "%s\n", cache.c_str());
+		cache.clear();
+	}
+	return;
+}
+
 
 template <int row_len, int column_len>
 void SaleListDB<row_len, column_len>::printList()

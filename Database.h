@@ -1,15 +1,28 @@
 #ifndef __DATABASE_H__
 #define __DATABASE_H__
+
+#define ITEM_MAX_NUM 100
+#define	ITEM_COLUMNS 5
+
+#define SALELIST_MAX_NUM 2000
+#define SALELIST_COLUMNS 6
+
+#define ACCOUNT_MAX_NUM 20
+#define ACCOUNT_COLUMNS 2
+
+#define CART_MAX_NUM 100
+#define CART_COLUMNS 5
+
 #include <string>
 using namespace std;
 
 enum Type { INT_T, FLOAT_T, STRING_T };
 
-
 template <int row_len, int column_len>
 class Database
 {
 public:
+	Database();
 	Database(string*, Type*);
 	string get(int, string);
 	Database& print();
@@ -31,6 +44,7 @@ template <int row_len, int column_len>
 class AccountDB: public Database<row_len, column_len>
 {
 public:
+	AccountDB();
 	AccountDB(string*, Type*, string);
 	//~AccountDB();
 	bool Login(string, string);
@@ -46,6 +60,7 @@ template <int row_len, int column_len>
 class ItemDB :public Database<row_len, column_len>
 {
 public:
+	ItemDB();
 	ItemDB(string*, Type*, string);
 	void deleteItem(string);
 	void searchItem(string, string*);
@@ -63,15 +78,37 @@ template <int row_len, int column_len>
 class SaleListDB : public Database<row_len, column_len>
 {
 public:
+	SaleListDB();
 	SaleListDB(string*, Type*, string);
 	void addSaled(string*);
 	void printList();
+	void Save();
 private:
 	void __sort();
 	void __exchange(int, int);
 	bool __id_front(string, string);
 	bool __row_front(string*, string*);
 	string __db_path;
+};
+
+template <int row_len, int column_len>
+class CartDB :public Database<row_len, column_len>
+{
+public:
+	CartDB(string*, Type*, string, string);
+	void addItem(string, string, ItemDB<ITEM_MAX_NUM, ITEM_COLUMNS>*);
+	void delItem(string, string);
+	void printCart();
+	void Settle(ItemDB<ITEM_MAX_NUM, ITEM_COLUMNS>*, 
+		SaleListDB<SALELIST_MAX_NUM, SALELIST_COLUMNS>*);
+	void Save();
+private:
+	void __clear();
+	float __total();
+	void __itemDB_settle(ItemDB<ITEM_MAX_NUM, ITEM_COLUMNS>*);
+	void __salelistDB_settle(SaleListDB<SALELIST_MAX_NUM, SALELIST_COLUMNS>*);
+	string __db_path;
+	string __user_name;
 };
 
 #endif // !__DATABASE_H__

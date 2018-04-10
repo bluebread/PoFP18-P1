@@ -1,5 +1,9 @@
 #include "Database.h"
 
+
+template <int row_len, int column_len>
+Database<row_len, column_len>::Database() {}
+
 template <int row_len, int column_len>
 Database<row_len, column_len>::Database(
 	string* names,

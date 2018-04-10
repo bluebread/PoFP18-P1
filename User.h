@@ -1,5 +1,5 @@
-#ifndef __ACCOUNT_H__
-#define __ACCOUNT_H__
+#ifndef __USER_H__
+#define __USER_H__
 #include <string>
 using namespace std;
 
@@ -36,4 +36,4 @@ using namespace std;
 //	void setItem();
 //	void printSaleList();
 //};
-#endif // !__ACCOUNT_H__
+#endif // !__USER_H__

@@ -6,6 +6,9 @@
 #define NUM_COL 4
 
 template <int row_len, int column_len>
+ItemDB<row_len, column_len>::ItemDB() {}
+
+template <int row_len, int column_len>
 ItemDB<row_len, column_len>::ItemDB(
 	string* names,
 	Type* type_list,
@@ -89,14 +92,14 @@ void ItemDB<row_len, column_len>::addItem(
 			__base[i][NUM_COL] = total_str;
 			return;
 		}
-		else if (nIsSame && bIsSame && !pIsSame)
-		{
-			__base[__row_count][ID_COL] = __base[i][ID_COL];
-			for (int j = 1; j < __column_max; j++)
-				__base[__row_count][j] = item[j - 1];
-			__row_count++;
-			return;
-		}
+		//else if (nIsSame && bIsSame && !pIsSame)
+		//{
+		//	__base[__row_count][ID_COL] = __base[i][ID_COL];
+		//	for (int j = 1; j < __column_max; j++)
+		//		__base[__row_count][j] = item[j - 1];
+		//	__row_count++;
+		//	return;
+		//}
 	}
 	string last_id = __base[__row_count - 1][ID_COL];
 	__base[__row_count][ID_COL] = __next_id(last_id);

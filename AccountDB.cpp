@@ -2,6 +2,8 @@
 #define ID_COL 0
 #define PW_COL 1
 
+template <int row_len, int column_len>
+AccountDB<row_len, column_len>::AccountDB() {}
 
 template <int row_len, int column_len>
 AccountDB<row_len, column_len>::AccountDB(

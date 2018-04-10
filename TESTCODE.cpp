@@ -4,6 +4,7 @@
 #include "AccountDB.cpp"
 #include "ItemDB.cpp"
 #include "SaleListDB.cpp"
+#include "CartDB.cpp"
 
 void test1()
 {
@@ -127,4 +128,63 @@ void test4()
 	testsldb.addSaled(addtest);
 
 	testsldb.printList();
+	testsldb.Save();
+}
+
+void test5()
+{
+	Type sltypetest[6] = {
+		STRING_T,
+		STRING_T,
+		STRING_T,
+		FLOAT_T,
+		INT_T,
+		STRING_T
+	};
+	string slnatest[6] = {
+		"ID",
+		"嘿",
+		"珇礟",
+		"基",
+		"计秖",
+		"ノめ"
+	};
+	string slpath = "扳睲虫.txt";
+	SaleListDB<2000, 6> testsldb(slnatest, sltypetest, slpath);
+
+	Type typetest[5] = {
+		STRING_T,
+		STRING_T,
+		STRING_T,
+		FLOAT_T,
+		INT_T
+	};
+	string natest[5] = {
+		"ID",
+		"嘿",
+		"珇礟",
+		"基",
+		"计秖"
+	};
+	string cpath = "user2.txt";
+	string user_name = "user2";
+	CartDB<20, 5> testcdb(natest, typetest, cpath, user_name);
+
+	string ipath = "畐.txt";
+	ItemDB<100, 5> testidb(natest, typetest, ipath);
+
+	string testid = "F0007";
+	string tesn = "2";
+	//testcdb.addItem(testid, tesn, &testidb);
+
+	testcdb.printCart();
+
+	testcdb.delItem(testid, tesn);
+
+	cout << "------------\n";
+	testcdb.printCart();
+
+	//testcdb.Settle(&testidb, &testsldb);
+
+	testcdb.Save();
 }
