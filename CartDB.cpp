@@ -8,6 +8,10 @@
 #define NUM_COL 4
 
 template <int row_len, int column_len>
+CartDB<row_len, column_len>::CartDB() {}
+
+
+template <int row_len, int column_len>
 CartDB<row_len, column_len>::CartDB(
 	string* names,
 	Type* type_list,
@@ -125,7 +129,7 @@ void CartDB<row_len, column_len>::Settle(
 	printCart();
 	printStar();
 	printArr();
-	printf("一共需要付款%f! 確認付款請按 1 , 取消請按 0 :", &total);
+	printf("一共需要付款%.1f! 確認付款請按 1 , 取消請按 0 :", total);
 	cin >> input;
 	printArr();
 	printStar();
@@ -212,6 +216,7 @@ void CartDB<row_len, column_len>::__clear()
 	for (int i = 0; i < __row_count; i++)
 		for (int j = 0; j < __column_max; j++)
 			__base[i][j] = emptyStr;
+	__row_count = 0;
 	return;
 }
 

@@ -1,5 +1,6 @@
 #include <iostream>
 #include "Database.h"
+#include "Account.h"
 #include "Database.cpp"
 #include "AccountDB.cpp"
 #include "ItemDB.cpp"
@@ -187,4 +188,61 @@ void test5()
 	//testcdb.Settle(&testidb, &testsldb);
 
 	testcdb.Save();
+}
+
+void test6()
+{
+	Type sltypetest[6] = {
+		STRING_T,
+		STRING_T,
+		STRING_T,
+		FLOAT_T,
+		INT_T,
+		STRING_T
+	};
+	string slnatest[6] = {
+		"ID",
+		"名稱",
+		"品牌",
+		"價格",
+		"數量",
+		"用戶名"
+	};
+	string slpath = "已售清單.txt";
+	SaleListDB<2000, 6> testsldb(slnatest, sltypetest, slpath);
+
+	Type typetest[5] = {
+		STRING_T,
+		STRING_T,
+		STRING_T,
+		FLOAT_T,
+		INT_T
+	};
+	string natest[5] = {
+		"ID",
+		"名稱",
+		"品牌",
+		"價格",
+		"數量"
+	};
+	string user_name = "user2";
+	string user_pw = "user2password";
+	User USER2(user_name, user_pw);
+
+	string ipath = "庫存.txt";
+	ItemDB<100, 5> testidb(natest, typetest, ipath);
+
+	//USER2.browse(&testidb);
+
+	//string search_item = "酸奶";
+	//USER2.search(search_item, &testidb);
+
+	//string addId = "F0002";
+	//string num_str = "2";
+	//USER2.addCart(addId, num_str, &testidb);
+
+	//USER2.printCart();
+
+	USER2.settle(&testidb, &testsldb);
+	USER2.Exit();
 }

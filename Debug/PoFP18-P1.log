@@ -1,26 +1,3 @@
-﻿  TESTCODE.cpp
-c:\users\hotbr\desktop\projects\homework\pofp18\pofp18-p1\pofp18-p1\itemdb.cpp(222): warning C4018: '<': signed/unsigned 不相符
-  c:\users\hotbr\desktop\projects\homework\pofp18\pofp18-p1\pofp18-p1\itemdb.cpp(212): note: 編譯 類別 樣板 成員函式 'std::string ItemDB<100,5>::__next_id(std::string)' 時
-  c:\users\hotbr\desktop\projects\homework\pofp18\pofp18-p1\pofp18-p1\itemdb.cpp(105): note: 請參閱所要編譯的函式 樣板 具現化 'std::string ItemDB<100,5>::__next_id(std::string)' 之參考
-  c:\users\hotbr\desktop\projects\homework\pofp18\pofp18-p1\pofp18-p1\itemdb.cpp(15): note: 編譯 類別 樣板 成員函式 'ItemDB<100,5>::ItemDB(std::string *,Type *,std::string)' 時
-  c:\users\hotbr\desktop\projects\homework\pofp18\pofp18-p1\pofp18-p1\testcode.cpp(68): note: 請參閱所要編譯的函式 樣板 具現化 'ItemDB<100,5>::ItemDB(std::string *,Type *,std::string)' 之參考
-  c:\users\hotbr\desktop\projects\homework\pofp18\pofp18-p1\pofp18-p1\testcode.cpp(68): note: 查看要編譯的 類別 樣板 具現化 'ItemDB<100,5>' 參考
-c:\users\hotbr\desktop\projects\homework\pofp18\pofp18-p1\pofp18-p1\salelistdb.cpp(155): warning C4244: '正在初始化': 將 'double' 轉換為 'float'，由於類型不同，可能導致資料遺失
-  c:\users\hotbr\desktop\projects\homework\pofp18\pofp18-p1\pofp18-p1\salelistdb.cpp(150): note: 編譯 類別 樣板 成員函式 'bool SaleListDB<2000,6>::__row_front(std::string *,std::string *)' 時
-  c:\users\hotbr\desktop\projects\homework\pofp18\pofp18-p1\pofp18-p1\salelistdb.cpp(109): note: 請參閱所要編譯的函式 樣板 具現化 'bool SaleListDB<2000,6>::__row_front(std::string *,std::string *)' 之參考
-  c:\users\hotbr\desktop\projects\homework\pofp18\pofp18-p1\pofp18-p1\salelistdb.cpp(104): note: 編譯 類別 樣板 成員函式 'void SaleListDB<2000,6>::__sort(void)' 時
-  c:\users\hotbr\desktop\projects\homework\pofp18\pofp18-p1\pofp18-p1\salelistdb.cpp(97): note: 請參閱所要編譯的函式 樣板 具現化 'void SaleListDB<2000,6>::__sort(void)' 之參考
-  c:\users\hotbr\desktop\projects\homework\pofp18\pofp18-p1\pofp18-p1\salelistdb.cpp(16): note: 編譯 類別 樣板 成員函式 'SaleListDB<2000,6>::SaleListDB(std::string *,Type *,std::string)' 時
-  c:\users\hotbr\desktop\projects\homework\pofp18\pofp18-p1\pofp18-p1\testcode.cpp(117): note: 請參閱所要編譯的函式 樣板 具現化 'SaleListDB<2000,6>::SaleListDB(std::string *,Type *,std::string)' 之參考
-  c:\users\hotbr\desktop\projects\homework\pofp18\pofp18-p1\pofp18-p1\testcode.cpp(117): note: 查看要編譯的 類別 樣板 具現化 'SaleListDB<2000,6>' 參考
-c:\users\hotbr\desktop\projects\homework\pofp18\pofp18-p1\pofp18-p1\salelistdb.cpp(156): warning C4244: '正在初始化': 將 'double' 轉換為 'float'，由於類型不同，可能導致資料遺失
-  Source.cpp
-  SaleListDB.cpp
-  Other.cpp
-  ItemDB.cpp
-  Database.cpp
-  CartDB.cpp
-  AccountDB.cpp
-  正在產生程式碼...
+﻿  Source.cpp
   PoFP18-P1.vcxproj -> C:\Users\hotbr\Desktop\Projects\HOMEWORK\PoFP18\PoFP18-P1\Debug\PoFP18-P1.exe
   PoFP18-P1.vcxproj -> C:\Users\hotbr\Desktop\Projects\HOMEWORK\PoFP18\PoFP18-P1\Debug\PoFP18-P1.pdb (Partial PDB)

@@ -93,13 +93,12 @@ template <int row_len, int column_len>
 class CartDB :public Database<row_len, column_len>
 {
 public:
+	CartDB();
 	CartDB(string*, Type*, string, string);
 	void addItem(string, string, ItemDB<ITEM_MAX_NUM, ITEM_COLUMNS>*);
 	void delItem(string, string);
 	void printCart();
-	void Settle(
-		ItemDB<ITEM_MAX_NUM, ITEM_COLUMNS>*, 
-		SaleListDB<SALELIST_MAX_NUM, SALELIST_COLUMNS>*);
+	void Settle(ItemDB<ITEM_MAX_NUM, ITEM_COLUMNS>*, SaleListDB<SALELIST_MAX_NUM, SALELIST_COLUMNS>*);
 	void Save();
 private:
 	void __clear();
