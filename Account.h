@@ -1,16 +1,18 @@
+
 #ifndef __USER_H__
 #define __USER_H__
+#include "Database.h"
 #include <string>
 using namespace std;
 
-//class Account
-//{
-//public:
-//	Account();
-//private:
-//	string __id;
-//	string __password;
-//};
+class Account
+{
+public:
+	Account(string, string);
+private:
+	string __id;
+	string __password;
+};
 //
 //class User : public Account
 //{
