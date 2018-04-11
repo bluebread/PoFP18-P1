@@ -31,15 +31,15 @@ private:
 	void __printAddSuccess();
 	string __id2filepath(string);
 };
-//
-//class Administrator : public Account
-//{
-//public:
-//	void exit();
-//	void browse();
-//	void addItem();
-//	void delItem();
-//	void setItem();
-//	void printSaleList();
-//};
+
+class Administrator : public Account
+{
+public:
+	Administrator(string, string);
+	void browse(ItemDB<ITEM_MAX_NUM, ITEM_COLUMNS>*);
+	void addItem(string[ITEM_COLUMNS - 1], ItemDB<ITEM_MAX_NUM, ITEM_COLUMNS>*);
+	void delItem(string, ItemDB<ITEM_MAX_NUM, ITEM_COLUMNS>*);
+	void setItem(string, string, string, ItemDB<ITEM_MAX_NUM, ITEM_COLUMNS>*);
+	void printSaleList(SaleListDB<SALELIST_MAX_NUM, SALELIST_COLUMNS>*);
+};
 #endif // !__USER_H__
