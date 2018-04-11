@@ -100,15 +100,16 @@ void CartDB<row_len, column_len>::delItem(
 			__base[i][NUM_COL] = new_num;
 			return;
 		}
-	}
+	}/*
 	printf("CartDB::delItem: ID %s is not found.\n",
-		id.c_str());
+		id.c_str());*/
 	return;
 }
 
 template <int row_len, int column_len>
 void CartDB<row_len, column_len>::printCart()
 {
+	__print_row(__names);
 	for (int i = 0; i < __row_count; i++)
 	{
 		int num = atoi(__base[i][NUM_COL].c_str());

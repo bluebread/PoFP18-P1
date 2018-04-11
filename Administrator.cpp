@@ -8,12 +8,16 @@ using namespace std;
 #include "SaleListDB.cpp"
 #include "CartDB.cpp"
 
-//Administrator::Administrator
+//Administrator::Administrator()
+Administrator::Administrator() { }
+//END Administrator::Administrator()
+
+//Administrator::Administrator(string, string)
 Administrator::Administrator(
 	string _id,
 	string _pw):
 	Account(_id, _pw){ }
-//END Administrator::Administrator
+//END Administrator::Administrator(string, string)
 
 //Administrator::browse
 void Administrator::browse(
@@ -30,6 +34,7 @@ void Administrator::addItem(
 	ItemDB<ITEM_MAX_NUM, ITEM_COLUMNS>* ITEM_DATABASE)
 {	
 	ITEM_DATABASE->addItem(addItem_row);
+	ITEM_DATABASE->printDB();
 	return;
 }
 //END Administrator::addItem()
@@ -37,9 +42,12 @@ void Administrator::addItem(
 //void Administrator::delItem
 void Administrator::delItem(
 	string _del_id,
-	ItemDB<ITEM_MAX_NUM, ITEM_COLUMNS>* ITEM_DATABASE)
+	ItemDB<ITEM_MAX_NUM, ITEM_COLUMNS>* ITEM_DATABASE,
+	AccountDB<ACCOUNT_MAX_NUM, ACCOUNT_COLUMNS>* ACCOUNT_DATABASE)
 {
 	ITEM_DATABASE->deleteItem(_del_id);
+	ITEM_DATABASE->printDB();
+	ACCOUNT_DATABASE->delItemFromAllUsers(_del_id);
 	return;
 }
 //END void Administrator::delItem
@@ -52,6 +60,7 @@ void Administrator::setItem(
 	ItemDB<ITEM_MAX_NUM, ITEM_COLUMNS>* ITEM_DATABASE)
 {
 	ITEM_DATABASE->setItem(__target_id, _set_col, _set_value);
+	ITEM_DATABASE->printDB(); 
 	return;
 }
 //END void Administrator::setItem

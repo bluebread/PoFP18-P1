@@ -48,8 +48,9 @@ public:
 	AccountDB(string*, Type*, string);
 	//~AccountDB();
 	bool Login(string, string);
-	void SignUp(string, string);
+	bool SignUp(string, string);
 	void Save();
+	void delItemFromAllUsers(string);
 private:
 	string __db_path;
 };

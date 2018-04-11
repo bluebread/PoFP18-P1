@@ -1,4 +1,5 @@
 #include "Database.h"
+#include "Account.h"
 #define ID_COL 0
 #define PW_COL 1
 
@@ -79,20 +80,27 @@ bool AccountDB<row_len, column_len>::Login(
 }
 
 template <int row_len, int column_len>
-void AccountDB<row_len, column_len>::SignUp(
+bool AccountDB<row_len, column_len>::SignUp(
 	string new_id,
 	string new_pw)
 {
+	for (int i = 0; i < __row_count; i++)
+		if (__base[i][ID_COL] == new_id)
+			return false;
 	if (__row_count >= __row_max)
 	{
 		cerr << "AccountDB::SignUp: Account Table is full.\n";
-		return;
+		return false;
 	}
 	__base[__row_count][ID_COL] = new_id;
 	__base[__row_count][PW_COL] = new_pw;
-
 	__row_count++;
-	return;
+
+	string __file_extension = ".txt";
+	string __new_file_path = new_id + __file_extension;
+	FILE* fp = fopen(__new_file_path.c_str(), "w");
+	fclose(fp);
+	return true;
 }
 
 template <int row_len, int column_len>
@@ -117,4 +125,19 @@ void AccountDB<row_len, column_len>::Save()
 		string pw = __base[i][PW_COL];
 		fprintf(fp, "%s %s\n", id.c_str(), pw.c_str());
 	}
+}
+
+template <int row_len, int column_len>
+void AccountDB<row_len, column_len>::delItemFromAllUsers(
+	string del_item_id)
+{
+	for (int i = 0; i < __row_count; i++)
+	{
+		string user_id = __base[i][ID_COL];
+		string big_number = "1000";
+		User u(user_id, user_id);
+		u.silentDelCart(del_item_id, big_number);
+		u.Exit();
+	}
+	return;
 }

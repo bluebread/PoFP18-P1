@@ -151,8 +151,12 @@ void ItemDB<row_len, column_len>::printDB()
 {
 	__print_row(__names);
 	for (int i = 0; i < __row_count; i++)
+	{
+		int _item_num = atoi(__base[i][NUM_COL].c_str());
+		if (_item_num <= 0)
+			continue;
 		__print_row(__base[i]);
-
+	}
 	return;
 }
 
@@ -161,6 +165,7 @@ void ItemDB<row_len, column_len>::printRows(
 	string *_id_list)
 {
 	int list_count = 0;
+	__print_row(__names);
 	for (int i = 0; i < __row_count; i++)
 	{
 		if (__base[i][ID_COL] == _id_list[list_count])

@@ -8,7 +8,12 @@ using namespace std;
 #include "SaleListDB.cpp"
 #include "CartDB.cpp"
 
-//User::User
+//User::User()
+User::User() {}
+
+//END User::User()
+
+//User::User(string, string)
 User::User(const string _id, const string _pw) :
 	Account(_id, _pw)
 {
@@ -46,7 +51,7 @@ CartDB<CART_MAX_NUM, CART_COLUMNS> User::__CartDB_init(
 		__id);
 	return cart;
 }
-//END User::User
+//END User::User(string, string)
 
 //void User::browse
 void User::browse(
@@ -64,7 +69,10 @@ void User::search(
 {
 	string id_list[ITEM_MAX_NUM];
 	ITEM_DATABASE->searchItem(target_item, id_list);
-	ITEM_DATABASE->printRows(id_list);
+	if (id_list[0].empty())
+		cout << "查無商品!!\n";
+	else
+		ITEM_DATABASE->printRows(id_list);
 	return;
 }
 //END User::search
@@ -85,16 +93,32 @@ void User::__printAddSuccess()
 	cout << "已經加入購物車!\n";
 	printStar();
 	cout << "購物車中有:\n";
-	printStar();
+	printBlank();
 	__CART_DATABASE.printCart();
-	printStar();
 }
 //END User::addCart
+
+void User::silentDelCart(string del_id, string num_str)
+{
+	__CART_DATABASE.delItem(del_id, num_str);
+	return;
+}
 
 //void User::delCart
 void User::delCart(string del_id, string num_str)
 {
 	__CART_DATABASE.delItem(del_id, num_str);
+	__printDelSuccess();
+	return;
+}
+void User::__printDelSuccess()
+{
+	printStar();
+	cout << "刪除成功!\n";
+	printBlank();
+	cout << "購物車中有:\n";
+	printBlank();
+	__CART_DATABASE.printCart();
 	return;
 }
 //END User::delCart
